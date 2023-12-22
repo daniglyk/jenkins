@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("build") {
       steps {
-        touch test
+        echo "hello"
       }
     }
   }
