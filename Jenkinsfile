@@ -9,7 +9,7 @@ pipeline {
  stage('Preparation') {
  steps {
  cleanWs()
- git credentialsId: '4f89e728-31ef-4ab3-a781-3e1d9b4ce504', url: "https://github.com/daniglyk/jenkins.git"
+ git credentialsId: '0e630ce6-950b-497f-8f73-4127e4ee0a47', url: "https://github.com/daniglyk/jenkins.git"
  }
  }
  stage('Build') {
