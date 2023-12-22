@@ -1,10 +1,3 @@
-pipeline {
- agent {
- node {
- label 'cl1b58srpl7vpqdoicpj-ipic' //set your kubernetes node
- }
-}
-
  stages {
  stage('Preparation') {
  steps {
