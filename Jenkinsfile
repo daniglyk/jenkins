@@ -5,7 +5,7 @@ pipeline {
     stage("build") {
       steps {
         sh "ls"
-        kubectl apply -f ingress.yaml -n mediawiki
+        sh "kubectl apply -f ingress.yaml -n mediawiki"
       }
     }
   }
