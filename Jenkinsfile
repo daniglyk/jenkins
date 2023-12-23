@@ -4,7 +4,6 @@ pipeline {
   stages {
     stage("build") {
       steps { 
-        sh 'apt-get install kubectl'  
         sh 'kubectl apply -f ingress.yaml -n mediawiki'
       }
     }
