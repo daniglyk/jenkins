@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("build") {
       steps { 
-        sh 'kubectl apply -f ingress.yaml -n mediawiki'
+        sh 'helm install ingress . -n mediawiki
       }
     }
   }
