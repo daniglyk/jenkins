@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage("build") {
       steps { 
-        sh 'helm install ingress . -n mediawiki
+        sh "helm install ingress . -n mediawiki"
       }
     }
   }
