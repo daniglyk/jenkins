@@ -1,0 +1,18 @@
+### pvc
+namePvc: grafana-pvc
+accessModes: ReadWriteOnce
+storage: 1Gi
+
+
+### deployment
+image: grafana/grafana:latest
+imagePullPolicy: IfNotPresent
+port: 3000
+cpu: 250m
+memory: 750Mi
+
+
+### service
+nameService: grafana
+portService: 3000
+type: LoadBalancer
