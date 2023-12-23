@@ -4,9 +4,8 @@ pipeline {
   stages {
     stage("build") {
       steps { 
-        sh "curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash"
-        sh 'source "/var/lib/jenkins/.bashrc"'
-        sh "kubectl get pods -n monitoring"
+        sh "helm package ."
+        sh "curl -u test:6889388 https://nexus-test.belarus-devops.app/repository/helm-test/ --upload-file grafana-0.1.0.tgz"
       }
     }
   }
