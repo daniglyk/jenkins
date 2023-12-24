@@ -9,8 +9,10 @@ pipeline {
     
     stage("package") {
       steps { 
-        sh 'sed -i "/0.1.0/c\version: 0.$env.BUILD_NUMBER.0" /test/Chart.yaml'
-        sh "helm package ./test"
+        sh '''
+        sed -i "/0.1.0/c\version: 0.$env.BUILD_NUMBER.0" /test/Chart.yaml
+        helm package ./test
+        '''
       }
     }
 
