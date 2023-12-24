@@ -1,14 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grafana-ingress
+  name: {{ .Values.nameIngress }}
 spec:
   ingressClassName: nginx
   rules :
-  - host: grafana-test.belarus-devops.app
+  - host: {{ .Values.host }}
 
  defaultBackend:
     service:
-      name: grafana
+      name: test
       port:
-        number: 3000
+        number: {{ .Values.portIngress }}

@@ -6,8 +6,8 @@ spec:
   ports:
     - port: {{ .Values.portService }}
       protocol: TCP
-      targetPort: http-grafana
+      targetPort: http-test
   selector:
-    app: grafana
+    app: test
   sessionAffinity: None
   type: {{ .Values.type }}

@@ -1,18 +1,10 @@
-### pvc
-namePvc: grafana-pvc
-accessModes: ReadWriteOnce
-storage: 1Gi
-
-
-### deployment
-image: grafana/grafana:latest
-imagePullPolicy: IfNotPresent
-port: 3000
-cpu: 250m
-memory: 750Mi
-
-
 ### service
-nameService: grafana
-portService: 3000
+nameService: service
+portService: 8080
 type: LoadBalancer
+
+
+### ingress
+nameIngress: test-ingress
+portIngress: 8080
+host: test-ingress-jenkins
