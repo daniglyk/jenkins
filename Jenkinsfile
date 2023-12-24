@@ -19,7 +19,7 @@ pipeline {
 
     stage("deploy") {
       steps { 
-        sh "helm repo update test ./test -n test"
+        sh "helm upgrade test ./test -n test"
       }
     }
     
