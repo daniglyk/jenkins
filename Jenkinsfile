@@ -12,7 +12,7 @@ pipeline {
     stage("package") {
       steps { 
         script {
-          sed -i "/${OLD_HELM}/${HELM_VERSION}" /test/Chart.yaml
+          sed -i '/${OLD_HELM}/${HELM_VERSION}' /test/Chart.yaml
           helm package ./test
         }
     }
