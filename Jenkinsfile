@@ -3,7 +3,6 @@ pipeline {
   environment {
       NEXUS_URL = "https://nexus-test.belarus-devops.app/repository/helm-test/"
       HELM_VERSION = "version: 0.$env.BUILD_NUMBER.0"
-      OLD_HELM = "version"
   }
   
   stages {
@@ -25,7 +24,7 @@ pipeline {
     
     stage("nexus") {
       steps { 
-        sh "curl -u ${USER_NEXUS}:${PASSWORD_NEXUS} ${NEXUS_URL} --upload-file *.tgz"
+        sh "curl -u test:6889388 ${NEXUS_URL} --upload-file *.tgz"
         sh "rm *.tgz"
       }
     }
