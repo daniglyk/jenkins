@@ -10,9 +10,10 @@ pipeline {
     
     stage("package") {
       steps { 
-        sh "sed -i "/version/${HELM_VERSION}" /test/Chart.yaml"
-        sh "helm package ./test"
-      }
+        script {
+          sed -i "/version/${HELM_VERSION}" /test/Chart.yaml
+          helm package ./test
+        }
     }
 
     stage("deploy") {
