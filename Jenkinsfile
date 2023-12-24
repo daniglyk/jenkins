@@ -14,13 +14,14 @@ pipeline {
           sh """#!/bin/bash
           sed -i 's|version: .*|${HELM_VERSION}|' ./test/Chart.yaml
           """
-          sh "helm package ./test" 
+          sh "mv ./test ./$env.BUILD_NUMBER
+          sh "helm package ./$env.BUILD_NUMBER" 
     }
     }
 
     stage("deploy") {
       steps { 
-        sh "helm install test ./test -n test"
+        sh "helm install test ./$env.BUILD_NUMBER -n test"
       }
     }
     
