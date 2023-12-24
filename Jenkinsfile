@@ -13,9 +13,8 @@ pipeline {
       }
     }
 
-    stage("k8s") {
+    stage("deploy") {
       steps { 
-        sh "kubectl create ns test"
         sh "helm install test . -n test"
       }
     }
