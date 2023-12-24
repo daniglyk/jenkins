@@ -9,15 +9,13 @@ pipeline {
     
     stage("package") {
       steps { 
-        sh "ls"
-        sh "cd test"
         sh "helm package ."
       }
     }
 
     stage("deploy") {
       steps { 
-        sh "helm install test . -n test"
+        sh "helm install test ./test -n test"
       }
     }
     
