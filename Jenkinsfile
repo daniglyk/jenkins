@@ -13,6 +13,10 @@ pipeline {
       steps { 
           sh """#!/bin/bash
           sed -i 's|version: .*|${HELM_VERSION}|' ./test/Chart.yaml
+          cd test
+          git add .
+          git commit -m "update info"
+          git push
           """
           sh "helm package ./test" 
     }
