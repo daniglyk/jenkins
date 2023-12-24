@@ -16,7 +16,7 @@ pipeline {
     stage("nexus") {
       steps { 
         sh "helm package ."
-        sh "curl -u test:6889388 ${NEXUS_URL} --upload-file *.tgz"
+        sh "curl -u $USER_NEXUS:$PASSWORD_NEXUS ${NEXUS_URL} --upload-file *.tgz"
         sh "rm *.tgz"
       }
     }
