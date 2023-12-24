@@ -9,6 +9,7 @@ pipeline {
     
     stage("package") {
       steps { 
+        sh "cd test"
         sh "helm package ."
       }
     }
