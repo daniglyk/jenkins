@@ -15,7 +15,7 @@ pipeline {
 
     stage("deploy") {
       steps { 
-        sh "helm install test ./test -n test"
+        sh "helm upgade test ./test -n test"
       }
     }
     
