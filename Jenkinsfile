@@ -3,6 +3,7 @@ pipeline {
   triggers { pollSCM ('* * * * *')}  
   environment {
       NEXUS_URL = "https://nexus-test.belarus-devops.app/repository/helm-test/"
+      HELM_VERSION = "version: 0.$env.BUILD_NUMBER.0"
   }
   
   stages {
@@ -10,7 +11,7 @@ pipeline {
     stage("package") {
       steps { 
         sh '''
-        sed -i '/0.1.0/version: 0.$env.BUILD_NUMBER.0' /test/Chart.yaml
+        sed -i "/version/${HELM_VERSION}" /test/Chart.yaml
         helm package ./test
         '''
       }
