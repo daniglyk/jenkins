@@ -11,8 +11,10 @@ pipeline {
     
     stage("package") {
       steps { 
-          sh "sed -i '/${OLD_HELM}/${HELM_VERSION}' /test/Chart.yaml"
-          sh "helm package ./test"
+          sh '''
+          sed -i '/${OLD_HELM}/${HELM_VERSION}' /test/Chart.yaml
+          helm package ./test
+          '''
     }
 
     stage("deploy") {
