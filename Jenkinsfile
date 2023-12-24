@@ -12,7 +12,7 @@ pipeline {
     stage("package") {
       steps { 
           sh """#!/bin/bash
-          sed -i 's|version: .*|${HELM_VERSION}|' app.yml
+          sed -i.bak 's|version: .*|${HELM_VERSION}|' app.yml
           """
           sh "helm package ./test" 
     }
