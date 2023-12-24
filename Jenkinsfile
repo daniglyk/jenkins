@@ -4,6 +4,7 @@ pipeline {
   environment {
       NEXUS_URL = "https://nexus-test.belarus-devops.app/repository/helm-test/"
       HELM_VERSION = "version: 0.$env.BUILD_NUMBER.0"
+      OLD_HELM = "version"
   }
   
   stages {
@@ -11,7 +12,7 @@ pipeline {
     stage("package") {
       steps { 
         script {
-          sed -i "/version/${HELM_VERSION}" /test/Chart.yaml
+          sed -i "/${OLD_HELM}/${HELM_VERSION}" /test/Chart.yaml
           helm package ./test
         }
     }
