@@ -15,7 +15,7 @@ pipeline {
 
     stage("deploy") {
       steps { 
-        sh "helm uninstall test ./test -n test"
+        sh "helm install test ./test -n test"
       }
     }
     
